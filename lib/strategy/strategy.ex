@@ -257,6 +257,6 @@ defmodule ClusterEcs.Strategy do
   defp extract_ips(_), do: {:error, "can't extract ips"}
 
   defp ip_to_nodename(ip, app_prefix) do
-    :"#{app_prefix}@#{ip}"
+    :"#{app_prefix}@ip-#{String.replace(ip, ".", "-")}"
   end
 end
